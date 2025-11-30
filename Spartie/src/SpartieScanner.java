@@ -214,6 +214,9 @@ public class SpartieScanner {
             case ';': type = TokenType.SEMICOLON; break;
             case '&': type = TokenType.AND; break;
             case '|': type = TokenType.OR; break;
+            case '\r':
+                type = TokenType.IGNORE;
+                break;
             case '\n':
                 type = TokenType.IGNORE;
                 line++;
