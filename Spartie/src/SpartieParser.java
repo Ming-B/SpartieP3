@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SpartieParser {
@@ -52,6 +51,11 @@ public class SpartieParser {
     private Statement forStatement() {
         consume(TokenType.LEFT_PAREN, "Missing '(' after 'for'.");
 
+        /*
+         * standard for loop : for(initializer, condition, increment) {body}
+         * can be rewritten as
+         * {initializer, while(condition){body, increment} }
+         */
         Statement initializer;
         if (match(TokenType.SEMICOLON)) {
             initializer = null;
