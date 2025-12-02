@@ -83,6 +83,18 @@ public class SpartieParser {
         // TODO: We have the initializer, we have the condition, we have the increment. Take those components
         //  and convert into while loop. Hint: Build a block statement and then a while statement using the condition.
 
+        // Build block statement
+        body = new Statement.BlockStatement(Arrays.asList(body, new Statement.ExpressionStatement(increment)));
+
+        // Build while statement
+        body = new Statement.WhileStatement(condition, body);
+
+        // Build second level block with initializer
+        body = new Statement.BlockStatement(Arrays.asList(initializer, body));
+        // this assumes none of the statements are null
+        // should we accept for loops with missing statements?
+        // if not should we have additional errors above when null?
+
         return body;
 
     }
