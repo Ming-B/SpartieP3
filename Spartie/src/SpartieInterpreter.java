@@ -36,14 +36,12 @@ public class SpartieInterpreter {
 
     // Statement Implementation
     private void interpretWhileStatement(Statement.WhileStatement statement) {
-        // TODO: Evaluate the while statement based on the condition
         while (isTrue(interpret(statement.condition))) {
             interpret(statement.body);
         }
     }
 
     private void interpretIfStatement(Statement.IfStatement statement) {
-        // TODO: Evaluate the condition and then execute the appropriate branch
         if (isTrue(interpret(statement.condition))) {
             //if condition is true, execute body
             interpret(statement.thenBranch);
@@ -111,15 +109,12 @@ public class SpartieInterpreter {
     }
 
     private Object interpretAssign(Expression.AssignmentExpression expression) {
-        // TODO: Interpret the expression for the assignment and then assign it to our global environment,
-        //  then return the value
         Object value = interpret(expression.value);
         globalEnvironment.assign(expression.name, value);
         return value;
     }
 
     private Object interpretVariable(Expression.VariableExpression expression) {
-        // TODO: Return the value from our global environment
         return globalEnvironment.get(expression.name.text);
     }
 

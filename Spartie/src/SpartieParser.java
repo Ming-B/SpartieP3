@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SpartieParser {
@@ -54,7 +55,13 @@ public class SpartieParser {
         /*
          * standard for loop : for(initializer, condition, increment) {body}
          * can be rewritten as
-         * {initializer, while(condition){body, increment} }
+         * {
+         * initializer
+         * while(condition){
+         * body
+         * increment
+         * }
+         * }
          */
         Statement initializer;
         if (match(TokenType.SEMICOLON)) {
@@ -96,7 +103,6 @@ public class SpartieParser {
         // if not should we have additional errors above when null?
 
         return body;
-
     }
 
     private Statement whileStatement() {

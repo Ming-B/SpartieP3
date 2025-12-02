@@ -23,7 +23,7 @@ public class Environment {
             return variables.get(name);
         }
         else if(enclosing != null) { //checks enclosing if variable is not in table
-            return enclosing.variables.get(name);
+            return enclosing.get(name);
         }
         else return null;
     }
